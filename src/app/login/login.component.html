@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+        <h3>Sign in here</h3>
+        <form action="login.php" method="post" (ngSubmit)="login()">
+            <div class="inputBox"> 
+                <input name="acno" [(ngModel)]="acno" type="text" name="Username" [placeholder]="data" id="acid"> 
+                <input name="pass" [(ngModel)]="psw" type="password"  name="Password" placeholder="Password"  id="pid"> </div> 
+            <button type="submit"  class="man1">login</button>
+        </form> 
+        <br>
+        <a class="man" href="#"  style="color:#59238F ;">Forget Password<br> </a>
+
+        <div class="text-center">
+            <a  routerLink="register"  style="color:#59238F ;"><br>Sign Up</a>
+        </div>
+        
+    </div>
+</body>
+</html>

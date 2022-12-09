@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+        <h3>Create your Account</h3>
+        <form action="login.php" method="post"(ngSubmit)="register()">
+            <div class="inputBox"> 
+                <input name="uname" [(ngModel)]="uname" type="text"   placeholder="Username"  id="uname"> 
+                <input name="acnum" [(ngModel)]="acnum" type="text"   placeholder="Account No:"  id="acid"> 
+
+                <input name="pass" [(ngModel)]="psw"  type="password"  placeholder="Password"  id="pid" > </div> 
+            <button type="submit"  class="man1" >Sign Up</button>
+        </form> 
+        <br>
+       
+    </div>  
+    
+</body>
+</html>

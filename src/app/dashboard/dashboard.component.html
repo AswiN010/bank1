@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 style="margin-top: 9px;">hi, {{user}}</h3>
+    <div class="loginBox container " > 
+        <form action="login.php" method="post" (ngSubmit)="deposit()">
+            <div class="inputBox"> 
+                <input name="acnum"  [(ngModel)]="acno"  type="text"   placeholder="Account No:"  id="acid"> 
+
+                <input name="pass" [(ngModel)]="psw"  type="password"  placeholder="Password"  id="pid" > 
+                <input name="acamt" [(ngModel)]="amnt"   type="text"   placeholder="amount"  id="acid"> 
+            </div> 
+            <button type="submit"  class="man1" >Deposit</button>
+        </form> 
+        <br>
+       
+    </div>  
+    <br>
+    <div class="loginBox container"> 
+        <form action="login.php" method="post" (ngSubmit)="withdraw()">
+            
+            <div class="inputBox"> 
+                <input name="acnum1" [(ngModel)]="withac"  type="text"   placeholder="Account No:"  id="acid"> 
+
+                <input name="pass1" [(ngModel)]="withps" type="password"  placeholder="Password"  id="pid" > 
+                <input name="acnum1" [(ngModel)]="witham" type="text"   placeholder="amount"  id="acid"> 
+            </div> 
+            <button type="submit"  class="man1" >withdraw</button>
+
+        </form> 
+        <h3><a  routerLink="/transaction" style="margin-top:20px ;color:white;border: #59238F 4px solid; border-radius: 5px;background-color: #59238F;">View Transcation History</a></h3>
+
+       
+    </div> 
+  
+</body>
+</html>
