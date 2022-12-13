@@ -9,12 +9,26 @@
 <body>
     <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
         <h3>Create your Account</h3>
-        <form action="login.php" method="post"(ngSubmit)="register()">
+        <form action="login.php" method="post"(ngSubmit)="register()" [formGroup]="registerForm">
             <div class="inputBox"> 
-                <input name="uname" [(ngModel)]="uname" type="text"   placeholder="Username"  id="uname"> 
-                <input name="acnum" [(ngModel)]="acnum" type="text"   placeholder="Account No:"  id="acid"> 
 
-                <input name="pass" [(ngModel)]="psw"  type="password"  placeholder="Password"  id="pid" > </div> 
+
+                <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+                    <p style="font-size: 14px;margin-top: -13px;color:#59238F;margin-bottom: -1px;">incorrect username</p>
+                </div>
+                <input name="uname" type="text" formControlName="uname"  placeholder="Username"  id="uname"> 
+
+
+                <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+                    <p style="font-size: 14px;margin-top: -13px;color:#59238F;margin-bottom: -1px;">incorrect Account number</p>
+                </div>
+                <input name="acnum" type="text" formControlName="acno"  placeholder="Account No:"  id="acid">
+                
+                
+                <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+                    <p style="font-size: 14px;margin-top: -13px;color:#59238F;margin-bottom: -1px;">Contain atleast five value</p>
+                </div>
+                <input name="pass"  type="password" formControlName="psw" placeholder="Password"  id="pid" > </div> 
             <button type="submit"  class="man1" >Sign Up</button>
         </form> 
         <br>

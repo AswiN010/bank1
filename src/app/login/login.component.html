@@ -8,19 +8,28 @@
 </head>
 <body>
     
+    
     <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
         <h3>Sign in here</h3>
-        <form action="login.php" method="post" (ngSubmit)="login()">
+        <form action="login.php" method="post" (ngSubmit)="login()" [formGroup]="loginForm">
             <div class="inputBox"> 
-                <input name="acno" [(ngModel)]="acno" type="text" name="Username" [placeholder]="data" id="acid"> 
-                <input name="pass" [(ngModel)]="psw" type="password"  name="Password" placeholder="Password"  id="pid"> </div> 
+
+                <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">
+                    <p style="font-size: 14px;margin-top: -13px;color:#59238F;margin-bottom: -1px;">incorrect Account number</p>
+                </div>
+                <input name="acno" formControlName="acno"  type="text" name="Username" [placeholder]="data" id="acid"> 
+
+                <div *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">
+                    <p style="font-size: 14px;margin-top: -13px;color:#59238F;margin-bottom: -1px;">contain aleast five values</p>
+                </div>
+                <input name="pass" formControlName="psw"  type="password"  name="Password" placeholder="Password"  id="pid"> </div> 
             <button type="submit"  class="man1">login</button>
         </form> 
         <br>
         <a class="man" href="#"  style="color:#59238F ;">Forget Password<br> </a>
 
         <div class="text-center">
-            <a  routerLink="register"  style="color:#59238F ;"><br>Sign Up</a>
+            <a  routerLink="register"  style="color:#59238F ;">Sign Up</a>
         </div>
         
     </div>

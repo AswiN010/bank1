@@ -14,10 +14,10 @@ export class DataService {
 
 
   userDetails: any = {
-    1000: { acno: 1000, username: "anu", password: "123", balance: 0 ,transaction:[] },
-    1001: { acno: 1001, username: "amal", password: "123", balance: 0 ,transaction:[]},
-    1002: { acno: 1002, username: "arun", password: "123", balance: 0 ,transaction:[]},
-    1003: { acno: 1003, username: "amala", password: "123", balance: 12220 ,transaction:[] }
+    1000: { acno: 1000, username: "anu", password: "123455", balance: 0 ,transaction:[] },
+    1001: { acno: 1001, username: "amal", password: "12345", balance: 0 ,transaction:[]},
+    1002: { acno: 1002, username: "arun", password: "12345", balance: 0 ,transaction:[]},
+    1003: { acno: 1003, username: "amala", password: "12345", balance: 12220 ,transaction:[] }
   }
 
 
@@ -86,7 +86,7 @@ else {
 withdraw(acno:any,password:any,amount:any)
 {
   var userDetails=this.userDetails
-var amnt=parseInt(amount)
+  var amnt=parseInt(amount)
 if (acno in userDetails) 
 {
   if(password==userDetails[acno]["password"])
@@ -112,10 +112,11 @@ if (acno in userDetails)
       }
 
 } 
-else {
+else 
+  {
   alert('incorrect ac no:')
   return false
-      }
+  }
 }
 
 gettransaction(acno:any)

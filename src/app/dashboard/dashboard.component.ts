@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -7,24 +8,19 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-acno=''
-psw=''
-amnt=''
 
-withac=''
-withps=''
-witham=''
 user=''
 
-constructor(private ds:DataService){
+constructor(private ds:DataService,private fb:FormBuilder){
 this.user=this.ds.currentuser
 }
-
+depositform=this.fb.group({acno:[''],psw:[''],amnt:['']})
+withdrawform=this.fb.group({acno1:[''],psw1:[''], amnt1:['']})
   deposit()
   {
-    var acno=this.acno
-    var psw=this.psw
-    var amnt=this.amnt
+    var acno=this.depositform.value.acno
+    var psw=this.depositform.value.psw
+    var amnt=this.depositform.value.amnt
     const result= this.ds.deposit(acno,psw,amnt)
 
     if (result) {
@@ -33,9 +29,9 @@ this.user=this.ds.currentuser
   }
   withdraw()
   {
-    var acno=this.withac
-    var psw=this.withps
-    var amnt=this.witham
+    var acno=this.withdrawform.value.acno1
+    var psw=this.withdrawform.value.psw1
+    var amnt=this.withdrawform.value.amnt1
     const result= this.ds.withdraw(acno,psw,amnt)
 
     if (result) {
@@ -44,3 +40,4 @@ this.user=this.ds.currentuser
   }
   
 }
+

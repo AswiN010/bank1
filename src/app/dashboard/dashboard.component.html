@@ -9,12 +9,12 @@
 <body>
     <h3 style="margin-top: 9px;">hi, {{user}}</h3>
     <div class="loginBox container " > 
-        <form action="login.php" method="post" (ngSubmit)="deposit()">
+        <form action="login.php" method="post" (ngSubmit)="deposit()"[formGroup]="depositform">
             <div class="inputBox"> 
-                <input name="acnum"  [(ngModel)]="acno"  type="text"   placeholder="Account No:"  id="acid"> 
+                <input name="acnum"  formControlName="acno"  type="text"   placeholder="Account No:"  id="acid"> 
 
-                <input name="pass" [(ngModel)]="psw"  type="password"  placeholder="Password"  id="pid" > 
-                <input name="acamt" [(ngModel)]="amnt"   type="text"   placeholder="amount"  id="acid"> 
+                <input name="pass" formControlName="psw"  type="password"  placeholder="Password"  id="pid" > 
+                <input name="acamt" formControlName ="amnt"   type="text"   placeholder="amount"  id="acid"> 
             </div> 
             <button type="submit"  class="man1" >Deposit</button>
         </form> 
@@ -23,18 +23,18 @@
     </div>  
     <br>
     <div class="loginBox container"> 
-        <form action="login.php" method="post" (ngSubmit)="withdraw()">
+        <form action="login.php" method="post" (ngSubmit)="withdraw()"[formGroup]="withdrawform">
             
             <div class="inputBox"> 
-                <input name="acnum1" [(ngModel)]="withac"  type="text"   placeholder="Account No:"  id="acid"> 
+                <input name="acnum1" formControlName="acno1"  type="text"   placeholder="Account No:"  id="acid"> 
 
-                <input name="pass1" [(ngModel)]="withps" type="password"  placeholder="Password"  id="pid" > 
-                <input name="acnum1" [(ngModel)]="witham" type="text"   placeholder="amount"  id="acid"> 
+                <input name="pass1" formControlName="psw1" type="password"  placeholder="Password"  id="pid" > 
+                <input name="acnum1" formControlName="amnt1" type="text"   placeholder="amount"  id="acid"> 
             </div> 
             <button type="submit"  class="man1" >withdraw</button>
 
         </form> 
-        <h3><a  routerLink="/transaction" style="margin-top:20px ;color:white;border: #59238F 4px solid; border-radius: 5px;background-color: #59238F;">View Transcation History</a></h3>
+        <h3><a  routerLink="/transaction" style="margin-top:20px ;color:white;border:  2px #42F3FA solid; border-radius: 5px;background-color: #59238F;">View Transcation History</a></h3>
 
        
     </div> 
